@@ -1,4 +1,3 @@
-// netlify/functions/create-checkout-session.js
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = async (event) => {
@@ -8,14 +7,7 @@ exports.handler = async (event) => {
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
       line_items: [{
-        price_data: {
-          currency: 'usd',
-          product_data: {
-            name: 'Dronesmith 5" Carbon Fiber FPV Frame',
-            images: ['https://yourdomain.com/path/to/drone.jpg'], // use your own hosted image
-          },
-          unit_amount: 5999, // $59.99 in cents
-        },
+        price: 'price_1RpcvbCnwpv7061402Y5nLAJ',
         quantity,
       }],
       success_url: 'https://dronesmith.net/success',
