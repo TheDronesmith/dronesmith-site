@@ -191,7 +191,7 @@
         <li><strong>Camera:</strong> 1200TVL CMOS (analog)</li>
       </ul>
       <div class="price">$550</div>
-      <a href="https://buy.stripe.com/test_test_placeholder" class="buy-btn">Buy Now</a>
+      <button class="buy-btn" onclick="handleBuy()">Buy Now</button>
     </div>
   </main>
 
@@ -211,6 +211,20 @@
     document.querySelectorAll('.thumbnails img').forEach(i => i.classList.remove('active'));
     img.classList.add('active');
   }
+  async function handleBuy() {
+  const res = await fetch('/.netlify/functions/create-checkout-session', {
+    method: 'POST'
+  });
+
+  const data = await res.json();
+
+  if (data.url) {
+    window.location.href = data.url;
+  } else {
+    alert("Error creating checkout session.");
+  }
+}
+
   </script>
 </body>
 </html>
