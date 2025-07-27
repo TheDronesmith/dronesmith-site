@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dronesmith</title>
+  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/TheDronesmith/dronesmith-site/main/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+  body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  header {
+    background-color: #111;
+    color: white;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .logo {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  .menu-toggle {
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+  }
+  nav {
+    display: flex;
+    gap: 1rem;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+  }
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .product {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 600px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  .carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .main-img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  .thumbnails {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  .thumbnails img {
+    width: 80px;
+    height: auto;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0.7;
+  }
+  .thumbnails img.active,
+  .thumbnails img:hover {
+    opacity: 1;
+    border: 2px solid #0070f3;
+  }
+  .product h1 {
+    font-size: 1.75rem;
+    margin: 1rem 0 0.5rem;
+  }
+  .product p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .product ul {
+    text-align: left;
+    margin: 1rem auto;
+    padding-left: 1.2rem;
+    max-width: 300px;
+  }
+  .product ul li {
+    margin-bottom: 0.5rem;
+  }
+  .price {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #111;
+    margin-bottom: 1rem;
+  }
+  .buy-btn {
+    background-color: #0070f3;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .buy-btn:hover {
+    background-color: #005bd1;
+  }
+  footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #777;
+  }
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+    nav {
+      display: none;
+    }
+    .mobile-nav.show {
+      display: flex;
+    }
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Dronesmith</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav class="desktop-nav">
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="mobile-nav" id="mobileMenu">
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <h2 class="section-title">Featured Product</h2>
+
+    <div class="product">
+      <div class="carousel">
+        <img id="mainImage" class="main-img" src="https://raw.githubusercontent.com/TheDronesmith/dronesmith-site/main/dronesmith01.jpg" alt="Complete FPV Drone" />
+        <div class="thumbnails">
+          <img src="https://raw.githubusercontent.com/TheDronesmith/dronesmith-site/main/dronesmith01.jpg" alt="Thumbnail 1" onclick="changeImage(this)" class="active" />
+          <img src="https://raw.githubusercontent.com/TheDronesmith/dronesmith-site/main/dronesmith02.jpg" alt="Thumbnail 2" onclick="changeImage(this)" />
+          <img src="https://raw.githubusercontent.com/TheDronesmith/dronesmith-site/main/dronesmith03.jpg" alt="Thumbnail 3" onclick="changeImage(this)" />
+        </div>
+      </div>
+      <h1>Dronesmith 5" Complete FPV Drone</h1>
+      <p>Experience the thrill of flight with this fully assembled 5" FPV drone. Perfect for freestyle, racing, or cinematic flying. FPV is fast, fun, and incredibly immersive—get in the air today!</p>
+      <ul>
+        <li><strong>Brand:</strong> Dronesmith&trade;</li>
+        <li><strong>Propeller size:</strong> 5 inch</li>
+        <li><strong>Battery:</strong> 4S LiPo (not included)</li>
+        <li><strong>Frame material:</strong> Carbon Fiber</li>
+        <li><strong>Motors:</strong> 2207 2450KV</li>
+        <li><strong>Flight controller:</strong> F7 with Betaflight</li>
+        <li><strong>Camera:</strong> 1200TVL CMOS (analog)</li>
+      </ul>
+      <div class="price">$550</div>
+      <button class="buy-btn" onclick="handleBuy()">Buy Now</button>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Dronesmith. All rights reserved.
+  </footer>
+
+  <script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('show');
+  }
+
+  function changeImage(img) {
+    const main = document.getElementById('mainImage');
+    main.src = img.src;
+    document.querySelectorAll('.thumbnails img').forEach(i => i.classList.remove('active'));
+    img.classList.add('active');
+  }
+  async function handleBuy() {
+  const res = await fetch('/.netlify/functions/create-checkout-session', {
+    method: 'POST'
+  });
+
+  const data = await res.json();
+
+  if (data.url) {
+    window.location.href = data.url;
+  } else {
+    alert("Error creating checkout session.");
+  }
+}
+
+  </script>
+</body>
+</html>
